@@ -65,6 +65,16 @@ if(loading){
   )
 
 }
+if(tours.length==0){
+  return(
+    <main>
+      <div>
+        <h2>No tour left</h2>
+      </div>
+      <button onClick={fetchTours}>Refresh</button>
+    </main>
+  )
+ }
   return <>
 
   <main>
@@ -72,6 +82,7 @@ if(loading){
   </main>
   
   </>
+ 
 }
 
 export default App
