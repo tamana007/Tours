@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
+
 const Tour = ({id,image,info,price,name}) => {
+
+  const [redMore,setReadmore]=useState(true);
+  
   return <article className='single-tour'>
     {/* <img src='http://www.visitsoutheastengland.com/imageresizer/?image=%2fdbimgs%2fgardens.jpg&action=MediaGallery'/> */}
     <img src={image}></img>
@@ -10,7 +14,8 @@ const Tour = ({id,image,info,price,name}) => {
           <h4 className='tour-price'>{price}</h4>
           {/* <h4 className='tour-price'>{price}</h4> */}
         </div>
-        <p>{info}</p>
+        <p>{redMore?info:`${info.substring(0,200)}...`}
+        <button onClick={()=>{setReadmore(!redMore)}}>{redMore?'Read More':'Show less'}</button></p>
         <button className='delete-btn'>Not interested</button>
       </footer>
      
